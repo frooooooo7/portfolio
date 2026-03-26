@@ -6,10 +6,10 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "Home", href: "#home" },
-  { name: "O mnie", href: "#about" },
+  { name: "About me", href: "#about" },
   { name: "Skills", href: "#skills" },
-  { name: "Projekty", href: "#projects" },
-  { name: "Kontakt", href: "#contact" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export function Navbar() {
@@ -44,7 +44,7 @@ export function Navbar() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-black/90 backdrop-blur-sm border-b border-red-600/30"
+          ? "bg-background/90 backdrop-blur-sm border-b border-primary/40"
           : "bg-transparent"
       }`}
     >
@@ -52,9 +52,9 @@ export function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="text-3xl tracking-wider">
-            <span className="text-red-600">&lt;</span>
-            <span className="text-white">fro</span>
-            <span className="text-red-600">/&gt;</span>
+            <span className="text-primary">&lt;</span>
+            <span className="text-foreground">fro</span>
+            <span className="text-primary">/&gt;</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -64,10 +64,10 @@ export function Navbar() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="text-white text-xl hover:text-red-500 transition-colors relative group"
+                className="text-foreground text-xl transition-colors relative group hover:text-primary"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </div>
@@ -75,7 +75,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white hover:text-red-600 transition-colors"
+            className="text-foreground transition-colors hover:text-primary md:hidden"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -87,7 +87,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-4 pb-4 border-t border-red-600/30"
+            className="mt-4 border-t border-primary/35 pb-4 md:hidden"
           >
             <div className="flex flex-col gap-4 mt-4">
               {navItems.map((item) => (
@@ -95,7 +95,7 @@ export function Navbar() {
                   key={item.name}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="text-gray-400 hover:text-red-500 transition-colors py-2"
+                  className="py-2 text-muted-foreground transition-colors hover:text-primary"
                 >
                   {item.name}
                 </a>
