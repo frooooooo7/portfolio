@@ -1,3 +1,4 @@
+import { getAboutApproachCardTransition } from "@/components/about-section/motion/about-approach-card-motion";
 import { motion, type Variants } from "framer-motion";
 
 type AboutApproachCardProps = {
@@ -13,15 +14,13 @@ export function AboutApproachCard({
   staggerGroup,
   prefersReducedMotion,
 }: AboutApproachCardProps) {
+  const transition = getAboutApproachCardTransition(prefersReducedMotion);
+
   return (
     <motion.aside
       className="relative rounded-3xl border border-primary/35 bg-card/70 p-6 shadow-[0_0_42px_rgba(47,125,230,0.22)] backdrop-blur-sm md:p-8"
       variants={revealUp}
-      transition={
-        prefersReducedMotion
-          ? { duration: 0 }
-          : { duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.12 }
-      }
+      transition={transition}
     >
       <span className="absolute right-6 top-6 text-xs uppercase tracking-[0.22em] text-primary/85">
         My approach

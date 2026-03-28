@@ -1,19 +1,14 @@
 "use client";
 
 import { AVATAR_PARTICLES } from "@/components/hero-page/avatar-particles";
-import { HeroSocialLinks } from "@/components/hero-page/hero-social-links";
 import {
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  type Variants,
-} from "framer-motion";
+  FIRST_NAME,
+  LAST_NAME,
+  useHeroContentMotion,
+} from "@/components/hero-page/motion/hero-content-motion";
+import { HeroSocialLinks } from "@/components/hero-page/hero-social-links";
+import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
-import { type MouseEvent } from "react";
-
-const FIRST_NAME = "Damian";
-const LAST_NAME = "Barzyk";
 
 type HeroContentProps = {
   revealUp: Variants;
@@ -26,65 +21,16 @@ export function HeroContent({
   staggerGroup,
   prefersReducedMotion,
 }: HeroContentProps) {
-  const pointerX = useMotionValue(0);
-  const pointerY = useMotionValue(0);
-
-  const springX = useSpring(pointerX, {
-    damping: 22,
-    stiffness: 170,
-    mass: 0.5,
-  });
-  const springY = useSpring(pointerY, {
-    damping: 22,
-    stiffness: 170,
-    mass: 0.5,
-  });
-
-  const glowX = useTransform(springX, (value) => value * 14);
-  const glowY = useTransform(springY, (value) => value * 12);
-  const contentX = useTransform(springX, (value) => value * 8);
-  const contentY = useTransform(springY, (value) => value * 6);
-
-  const headingStagger: Variants = {
-    hidden: {},
-    show: {
-      transition: prefersReducedMotion
-        ? { duration: 0 }
-        : { staggerChildren: 0.032, delayChildren: 0.2 },
-    },
-  };
-
-  const letterReveal: Variants = {
-    hidden: {
-      opacity: 0,
-      y: prefersReducedMotion ? 0 : 30,
-      rotateX: prefersReducedMotion ? 0 : -70,
-    },
-    show: {
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      transition: prefersReducedMotion
-        ? { duration: 0 }
-        : { duration: 0.55, ease: [0.2, 0.9, 0.2, 1] },
-    },
-  };
-
-  function handleMouseMove(event: MouseEvent<HTMLDivElement>) {
-    if (prefersReducedMotion) return;
-
-    const bounds = event.currentTarget.getBoundingClientRect();
-    const nx = (event.clientX - bounds.left) / bounds.width;
-    const ny = (event.clientY - bounds.top) / bounds.height;
-
-    pointerX.set((nx - 0.5) * 2);
-    pointerY.set((ny - 0.5) * 2);
-  }
-
-  function handleMouseLeave() {
-    pointerX.set(0);
-    pointerY.set(0);
-  }
+  const {
+    contentStyle,
+    glowStyle,
+    headingStagger,
+    letterReveal,
+    avatarHover,
+    avatarTransition,
+    handleMouseMove,
+    handleMouseLeave,
+  } = useHeroContentMotion(prefersReducedMotion);
 
   return (
     <motion.div
@@ -92,39 +38,19 @@ export function HeroContent({
       variants={staggerGroup}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={
-        prefersReducedMotion
-          ? undefined
-          : {
-              x: contentX,
-              y: contentY,
-            }
-      }
+      style={contentStyle}
     >
       <motion.div
         className="pointer-events-none absolute -z-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(81,164,255,0.28),transparent_64%)] blur-2xl"
-        style={
-          prefersReducedMotion
-            ? undefined
-            : {
-                x: glowX,
-                y: glowY,
-              }
-        }
+        style={glowStyle}
         aria-hidden="true"
       />
 
       <motion.div
         className="relative size-32 overflow-hidden rounded-full border border-primary/60 bg-background/50 shadow-[0_0_48px_rgba(47,125,230,0.4)] md:size-40"
         variants={revealUp}
-        whileHover={
-          prefersReducedMotion ? undefined : { y: -4, scale: 1.02, rotate: 0.8 }
-        }
-        transition={
-          prefersReducedMotion
-            ? { duration: 0 }
-            : { duration: 0.35, ease: "easeOut" }
-        }
+        whileHover={avatarHover}
+        transition={avatarTransition}
       >
         <Image
           src="/avatar.png"

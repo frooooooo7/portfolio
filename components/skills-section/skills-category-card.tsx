@@ -1,3 +1,4 @@
+import { getSkillsCategoryCardMotion } from "@/components/skills-section/motion/skills-category-card-motion";
 import { motion, type Variants } from "framer-motion";
 
 type SkillsCategoryCardProps = {
@@ -19,20 +20,15 @@ export function SkillsCategoryCard({
   staggerGroup,
   prefersReducedMotion,
 }: SkillsCategoryCardProps) {
+  const { whileHover, transition } =
+    getSkillsCategoryCardMotion(prefersReducedMotion);
+
   return (
     <motion.article
       variants={revealUp}
       className={`relative overflow-hidden rounded-3xl border bg-linear-to-br p-6 shadow-[0_0_32px_rgba(47,125,230,0.16)] backdrop-blur-sm md:p-7 ${accentClass}`}
-      whileHover={
-        prefersReducedMotion
-          ? undefined
-          : { y: -6, boxShadow: "0 16px 40px rgba(47,125,230,0.24)" }
-      }
-      transition={
-        prefersReducedMotion
-          ? { duration: 0 }
-          : { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
-      }
+      whileHover={whileHover}
+      transition={transition}
     >
       <div className="absolute -right-12 -top-12 h-28 w-28 rounded-full bg-primary/20 blur-2xl" />
 

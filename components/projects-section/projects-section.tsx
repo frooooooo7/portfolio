@@ -1,34 +1,14 @@
 "use client";
 
 import { ProjectCard } from "@/components/projects-section/project-card";
+import { createProjectsSectionMotion } from "@/components/projects-section/motion/projects-section-motion";
 import { projects } from "@/components/projects-section/projects-data";
-import {
-  motion,
-  useReducedMotion,
-  type Transition,
-  type Variants,
-} from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export function ProjectsSection() {
   const prefersReducedMotion = useReducedMotion() ?? false;
-
-  const baseTransition: Transition = prefersReducedMotion
-    ? { duration: 0 }
-    : { duration: 0.7, ease: [0.22, 1, 0.36, 1] };
-
-  const revealUp: Variants = {
-    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 24 },
-    show: { opacity: 1, y: 0, transition: baseTransition },
-  };
-
-  const staggerGroup: Variants = {
-    hidden: {},
-    show: {
-      transition: prefersReducedMotion
-        ? { duration: 0 }
-        : { staggerChildren: 0.08, delayChildren: 0.08 },
-    },
-  };
+  const { revealUp, staggerGroup } =
+    createProjectsSectionMotion(prefersReducedMotion);
 
   const featuredProject = projects.find((project) => project.featured);
   const otherProjects = projects.filter((project) => !project.featured);

@@ -4,33 +4,13 @@ import { ContactForm } from "@/components/contact-section/contact-form";
 import { ContactHeader } from "@/components/contact-section/contact-header";
 import { ContactInfoPanel } from "@/components/contact-section/contact-info-panel";
 import { contactItems } from "@/components/contact-section/contact-data";
-import {
-  motion,
-  useReducedMotion,
-  type Transition,
-  type Variants,
-} from "framer-motion";
+import { createContactSectionMotion } from "@/components/contact-section/motion/contact-section-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export function ContactSection() {
   const prefersReducedMotion = useReducedMotion() ?? false;
-
-  const baseTransition: Transition = prefersReducedMotion
-    ? { duration: 0 }
-    : { duration: 0.7, ease: [0.22, 1, 0.36, 1] };
-
-  const revealUp: Variants = {
-    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 24 },
-    show: { opacity: 1, y: 0, transition: baseTransition },
-  };
-
-  const staggerGroup: Variants = {
-    hidden: {},
-    show: {
-      transition: prefersReducedMotion
-        ? { duration: 0 }
-        : { staggerChildren: 0.08, delayChildren: 0.08 },
-    },
-  };
+  const { revealUp, staggerGroup } =
+    createContactSectionMotion(prefersReducedMotion);
 
   return (
     <motion.section

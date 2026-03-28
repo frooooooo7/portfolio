@@ -1,34 +1,14 @@
 "use client";
 
 import { SkillsCategoryCard } from "@/components/skills-section/skills-category-card";
+import { createSkillsSectionMotion } from "@/components/skills-section/motion/skills-section-motion";
 import { skillCategories } from "@/components/skills-section/skills-data";
-import {
-  motion,
-  useReducedMotion,
-  type Transition,
-  type Variants,
-} from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export function SkillsSection() {
-  const prefersReducedMotion = useReducedMotion();
-
-  const baseTransition: Transition = prefersReducedMotion
-    ? { duration: 0 }
-    : { duration: 0.7, ease: [0.22, 1, 0.36, 1] };
-
-  const revealUp: Variants = {
-    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 26 },
-    show: { opacity: 1, y: 0, transition: baseTransition },
-  };
-
-  const staggerGroup: Variants = {
-    hidden: {},
-    show: {
-      transition: prefersReducedMotion
-        ? { duration: 0 }
-        : { staggerChildren: 0.09, delayChildren: 0.08 },
-    },
-  };
+  const prefersReducedMotion = useReducedMotion() ?? false;
+  const { revealUp, staggerGroup } =
+    createSkillsSectionMotion(prefersReducedMotion);
 
   return (
     <motion.section

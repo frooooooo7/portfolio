@@ -2,39 +2,14 @@
 
 import { HeroBackground } from "@/components/hero-page/hero-background";
 import { HeroContent } from "@/components/hero-page/hero-content";
+import { createHeroSectionMotion } from "@/components/hero-page/motion/hero-section-motion";
 import { HeroScrollIndicator } from "@/components/hero-page/hero-scroll-indicator";
-import {
-  motion,
-  useReducedMotion,
-  type Transition,
-  type Variants,
-} from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export function HeroSection() {
   const prefersReducedMotion = useReducedMotion() ?? false;
-
-  const baseTransition: Transition = prefersReducedMotion
-    ? { duration: 0 }
-    : { duration: 0.8, ease: [0.22, 1, 0.36, 1] };
-
-  const sectionFade: Variants = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: baseTransition },
-  };
-
-  const revealUp: Variants = {
-    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 28 },
-    show: { opacity: 1, y: 0, transition: baseTransition },
-  };
-
-  const staggerGroup: Variants = {
-    hidden: {},
-    show: {
-      transition: prefersReducedMotion
-        ? { duration: 0 }
-        : { staggerChildren: 0.1, delayChildren: 0.12 },
-    },
-  };
+  const { sectionFade, revealUp, staggerGroup } =
+    createHeroSectionMotion(prefersReducedMotion);
 
   return (
     <motion.section

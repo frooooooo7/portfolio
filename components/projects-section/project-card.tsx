@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { getProjectCardMotion } from "@/components/projects-section/motion/project-card-motion";
 import { motion, type Variants } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
@@ -32,6 +33,8 @@ export function ProjectCard({
   staggerGroup,
   prefersReducedMotion,
 }: ProjectCardProps) {
+  const { whileHover, transition } = getProjectCardMotion(prefersReducedMotion);
+
   return (
     <motion.article
       variants={revealUp}
@@ -40,16 +43,8 @@ export function ProjectCard({
           ? "border-primary/45 bg-linear-to-br from-primary/25 via-primary/10 to-cyan-300/20 shadow-[0_0_38px_rgba(47,125,230,0.2)]"
           : "border-primary/30 bg-card/75 shadow-[0_0_30px_rgba(47,125,230,0.14)]"
       }`}
-      whileHover={
-        prefersReducedMotion
-          ? undefined
-          : { y: -6, boxShadow: "0 16px 44px rgba(47,125,230,0.22)" }
-      }
-      transition={
-        prefersReducedMotion
-          ? { duration: 0 }
-          : { duration: 0.3, ease: [0.22, 1, 0.36, 1] }
-      }
+      whileHover={whileHover}
+      transition={transition}
     >
       <div className="absolute -right-14 -top-14 h-32 w-32 rounded-full bg-primary/20 blur-2xl" />
 

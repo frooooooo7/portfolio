@@ -1,3 +1,4 @@
+import { getHeroSocialLinkMotion } from "@/components/hero-page/motion/hero-social-links-motion";
 import { FileText, Mail, type LucideIcon } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
 
@@ -34,6 +35,9 @@ export function HeroSocialLinks({
   staggerGroup,
   prefersReducedMotion,
 }: HeroSocialLinksProps) {
+  const { whileHover, whileTap } =
+    getHeroSocialLinkMotion(prefersReducedMotion);
+
   return (
     <motion.div
       className="flex flex-wrap items-center justify-center gap-3 pt-2 md:gap-4"
@@ -49,17 +53,8 @@ export function HeroSocialLinks({
           className="flex size-12 items-center justify-center border border-primary/50 bg-background/45 text-primary transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground"
           aria-label={label}
           variants={revealUp}
-          whileHover={
-            prefersReducedMotion
-              ? undefined
-              : {
-                  y: -4,
-                  scale: 1.04,
-                  rotate: 1.5,
-                  transition: { duration: 0.2 },
-                }
-          }
-          whileTap={prefersReducedMotion ? undefined : { scale: 0.96 }}
+          whileHover={whileHover}
+          whileTap={whileTap}
         >
           {iconSrc ? (
             <span

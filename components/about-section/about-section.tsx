@@ -4,33 +4,13 @@ import { AboutApproachCard } from "@/components/about-section/about-approach-car
 import { AboutBackground } from "@/components/about-section/about-background";
 import { AboutContent } from "@/components/about-section/about-content";
 import { principles, quickFacts } from "@/components/about-section/about-data";
-import {
-  motion,
-  useReducedMotion,
-  type Transition,
-  type Variants,
-} from "framer-motion";
+import { createAboutSectionMotion } from "@/components/about-section/motion/about-section-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export function AboutSection() {
   const prefersReducedMotion = useReducedMotion() ?? false;
-
-  const baseTransition: Transition = prefersReducedMotion
-    ? { duration: 0 }
-    : { duration: 0.7, ease: [0.22, 1, 0.36, 1] };
-
-  const revealUp: Variants = {
-    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 28 },
-    show: { opacity: 1, y: 0, transition: baseTransition },
-  };
-
-  const staggerGroup: Variants = {
-    hidden: {},
-    show: {
-      transition: prefersReducedMotion
-        ? { duration: 0 }
-        : { staggerChildren: 0.1, delayChildren: 0.08 },
-    },
-  };
+  const { revealUp, staggerGroup } =
+    createAboutSectionMotion(prefersReducedMotion);
 
   return (
     <motion.section
