@@ -1,4 +1,5 @@
 import { AboutSection } from "@/components/about-section";
+import { ContactSection } from "@/components/contact-section";
 import { Navbar } from "@/components/navbar";
 import { HeroSection } from "@/components/hero-page/hero-section";
 import { ProjectsSection } from "@/components/projects-section";
@@ -12,6 +13,7 @@ export default function Home() {
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
+      <ContactSection />
     </div>
   );
 }
