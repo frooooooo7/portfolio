@@ -1,4 +1,5 @@
 import { FileText, Mail, type LucideIcon } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
 
 type SocialLink = {
   href: string;
@@ -22,11 +23,24 @@ const SOCIAL_LINKS: SocialLink[] = [
   { href: "/cv.pdf", label: "CV", icon: FileText },
 ];
 
-export function HeroSocialLinks() {
+type HeroSocialLinksProps = {
+  revealUp: Variants;
+  staggerGroup: Variants;
+  prefersReducedMotion: boolean;
+};
+
+export function HeroSocialLinks({
+  revealUp,
+  staggerGroup,
+  prefersReducedMotion,
+}: HeroSocialLinksProps) {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-3 pt-2 md:gap-4">
+    <motion.div
+      className="flex flex-wrap items-center justify-center gap-3 pt-2 md:gap-4"
+      variants={staggerGroup}
+    >
       {SOCIAL_LINKS.map(({ href, label, icon: Icon, iconSrc }) => (
-        <a
+        <motion.a
           key={label}
           href={href}
           target={href.startsWith("http") ? "_blank" : undefined}
@@ -34,6 +48,18 @@ export function HeroSocialLinks() {
           title={label}
           className="flex size-12 items-center justify-center border border-primary/50 bg-background/45 text-primary transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground"
           aria-label={label}
+          variants={revealUp}
+          whileHover={
+            prefersReducedMotion
+              ? undefined
+              : {
+                  y: -4,
+                  scale: 1.04,
+                  rotate: 1.5,
+                  transition: { duration: 0.2 },
+                }
+          }
+          whileTap={prefersReducedMotion ? undefined : { scale: 0.96 }}
         >
           {iconSrc ? (
             <span
@@ -53,8 +79,8 @@ export function HeroSocialLinks() {
           ) : Icon ? (
             <Icon className="size-5" />
           ) : null}
-        </a>
+        </motion.a>
       ))}
-    </div>
+    </motion.div>
   );
 }
