@@ -22,7 +22,7 @@ export function SkillsCategoryCard({
   return (
     <motion.article
       variants={revealUp}
-      className={`relative overflow-hidden rounded-3xl border bg-gradient-to-br p-6 shadow-[0_0_32px_rgba(47,125,230,0.16)] backdrop-blur-sm md:p-7 ${accentClass}`}
+      className={`relative overflow-hidden rounded-3xl border bg-linear-to-br p-6 shadow-[0_0_32px_rgba(47,125,230,0.16)] backdrop-blur-sm md:p-7 ${accentClass}`}
       whileHover={
         prefersReducedMotion
           ? undefined

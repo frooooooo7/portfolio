@@ -1,0 +1,9 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" fill="#071329"/>
+  <rect x="70" y="70" width="1060" height="580" rx="28" fill="#0D2242"/>
+  <rect x="120" y="150" width="340" height="48" rx="12" fill="#2F7DE6"/>
+  <rect x="120" y="230" width="220" height="24" rx="8" fill="#51A4FF"/>
+  <rect x="120" y="278" width="220" height="24" rx="8" fill="#51A4FF"/>
+  <rect x="520" y="150" width="550" height="420" rx="20" fill="#14386B"/>
+  <text x="120" y="112" fill="#E8F4FF" font-family="Arial, sans-serif" font-size="44" font-weight="700">Pulse Commerce</text>
+</svg>

@@ -12,7 +12,7 @@ import {
 } from "framer-motion";
 
 export function AboutSection() {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = useReducedMotion() ?? false;
 
   const baseTransition: Transition = prefersReducedMotion
     ? { duration: 0 }

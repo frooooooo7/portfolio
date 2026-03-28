@@ -1,0 +1,9 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" fill="#071329"/>
+  <rect x="90" y="90" width="1020" height="540" rx="24" fill="#0D2242"/>
+  <rect x="140" y="150" width="400" height="320" rx="20" fill="#14386B"/>
+  <rect x="580" y="150" width="470" height="150" rx="20" fill="#2F7DE6"/>
+  <rect x="580" y="320" width="470" height="150" rx="20" fill="#14386B"/>
+  <rect x="140" y="500" width="910" height="80" rx="16" fill="#51A4FF"/>
+  <text x="140" y="132" fill="#E8F4FF" font-family="Arial, sans-serif" font-size="44" font-weight="700">EventPilot</text>
+</svg>

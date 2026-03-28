@@ -1,0 +1,11 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" fill="#020A18"/>
+  <rect x="100" y="90" width="1000" height="540" rx="24" fill="#0D2242"/>
+  <rect x="160" y="150" width="520" height="68" rx="12" fill="#2F7DE6"/>
+  <rect x="160" y="248" width="480" height="20" rx="8" fill="#86C4FF"/>
+  <rect x="160" y="284" width="430" height="20" rx="8" fill="#86C4FF"/>
+  <rect x="160" y="320" width="460" height="20" rx="8" fill="#86C4FF"/>
+  <circle cx="900" cy="290" r="120" fill="#14386B"/>
+  <circle cx="900" cy="290" r="72" fill="#2F7DE6"/>
+  <text x="160" y="570" fill="#E8F4FF" font-family="Arial, sans-serif" font-size="44" font-weight="700">LegalDocs AI</text>
+</svg>
