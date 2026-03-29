@@ -80,12 +80,12 @@ export function HeroContent({
 
       <motion.div className="flex flex-col gap-4" variants={revealUp}>
         <h1
-          className="text-5xl font-bold uppercase md:text-5xl"
+          className="flex flex-wrap justify-center gap-x-3 text-4xl font-bold uppercase leading-tight sm:text-5xl"
           aria-label="Damian Barzyk"
         >
           <span className="sr-only">Damian Barzyk</span>
           <motion.span
-            className="text-foreground"
+            className="whitespace-nowrap text-foreground"
             variants={headingStagger}
             initial="hidden"
             animate="show"
@@ -102,7 +102,7 @@ export function HeroContent({
             ))}
           </motion.span>{" "}
           <motion.span
-            className="text-primary"
+            className="whitespace-nowrap text-primary"
             variants={headingStagger}
             initial="hidden"
             animate="show"
