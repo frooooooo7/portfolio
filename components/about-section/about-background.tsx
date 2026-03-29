@@ -14,12 +14,12 @@ export function AboutBackground({
   return (
     <div className="pointer-events-none absolute inset-0 -z-10">
       <motion.div
-        className="absolute -left-14 top-16 h-52 w-52 rounded-full bg-primary/25 blur-3xl"
+        className="absolute -left-14 top-16 h-52 w-52 rounded-full bg-primary/25 blur-3xl mobile-no-blur"
         animate={leftAnimate}
         transition={leftTransition}
       />
       <motion.div
-        className="absolute -right-14 bottom-10 h-64 w-64 rounded-full bg-cyan-300/15 blur-3xl"
+        className="absolute -right-14 bottom-10 h-64 w-64 rounded-full bg-cyan-300/15 blur-3xl mobile-no-blur"
         animate={rightAnimate}
         transition={rightTransition}
       />

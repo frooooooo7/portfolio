@@ -26,11 +26,11 @@ export function SkillsCategoryCard({
   return (
     <motion.article
       variants={revealUp}
-      className={`relative overflow-hidden rounded-3xl border bg-linear-to-br p-6 shadow-[0_0_32px_rgba(47,125,230,0.16)] backdrop-blur-sm md:p-7 ${accentClass}`}
+      className={`relative overflow-hidden rounded-3xl border bg-linear-to-br p-6 shadow-[0_0_32px_rgba(47,125,230,0.16)] mobile-no-shadow md:p-7 ${accentClass}`}
       whileHover={whileHover}
       transition={transition}
     >
-      <div className="absolute -right-12 -top-12 h-28 w-28 rounded-full bg-primary/20 blur-2xl" />
+      <div className="absolute -right-12 -top-12 h-28 w-28 rounded-full bg-primary/20 blur-2xl mobile-no-blur" />
 
       <div className="relative z-10 space-y-5">
         <div className="space-y-2">

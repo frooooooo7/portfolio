@@ -131,10 +131,12 @@
     transform: translateY(14px);
     opacity: 0.35;
   }
+
   50% {
     transform: translateY(0);
     opacity: 1;
   }
+
   100% {
     transform: translateY(14px);
     opacity: 0.35;
@@ -146,10 +148,12 @@
     transform: translateY(0) scale(0.88);
     opacity: 0.25;
   }
+
   50% {
     transform: translateY(-7px) scale(1);
     opacity: 0.85;
   }
+
   100% {
     transform: translateY(0) scale(0.88);
     opacity: 0.25;
@@ -161,6 +165,7 @@
     transform: translateY(30px);
     opacity: 0;
   }
+
   100% {
     transform: translateY(0);
     opacity: 1;
@@ -172,10 +177,12 @@
     transform: translate3d(0, 0, 0) scale(0.96);
     opacity: 0.55;
   }
+
   50% {
     transform: translate3d(22px, -16px, 0) scale(1.06);
     opacity: 0.95;
   }
+
   100% {
     transform: translate3d(0, 0, 0) scale(0.96);
     opacity: 0.55;
@@ -186,10 +193,34 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
+  }
+}
+
+/* ── Mobile GPU performance ─────────────────────────────── */
+@media (max-width: 767px) {
+  .mobile-no-blur {
+    filter: none !important;
+    -webkit-filter: none !important;
+    opacity: 0.5;
+  }
+
+  .mobile-no-shadow {
+    box-shadow: none !important;
+  }
+
+  .mobile-no-backdrop {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .mobile-no-animate {
+    animation: none !important;
   }
 }

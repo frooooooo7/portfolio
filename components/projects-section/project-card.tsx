@@ -38,15 +38,15 @@ export function ProjectCard({
   return (
     <motion.article
       variants={revealUp}
-      className={`relative overflow-hidden rounded-3xl border p-6 backdrop-blur-sm md:p-7 ${
+      className={`relative overflow-hidden rounded-3xl border p-6 md:p-7 ${
         featured
-          ? "border-primary/45 bg-linear-to-br from-primary/25 via-primary/10 to-cyan-300/20 shadow-[0_0_38px_rgba(47,125,230,0.2)]"
-          : "border-primary/30 bg-card/75 shadow-[0_0_30px_rgba(47,125,230,0.14)]"
+          ? "border-primary/45 bg-linear-to-br from-primary/25 via-primary/10 to-cyan-300/20 shadow-[0_0_38px_rgba(47,125,230,0.2)] mobile-no-shadow"
+          : "border-primary/30 bg-card/75 shadow-[0_0_30px_rgba(47,125,230,0.14)] mobile-no-shadow"
       }`}
       whileHover={whileHover}
       transition={transition}
     >
-      <div className="absolute -right-14 -top-14 h-32 w-32 rounded-full bg-primary/20 blur-2xl" />
+      <div className="absolute -right-14 -top-14 h-32 w-32 rounded-full bg-primary/20 blur-2xl mobile-no-blur" />
 
       <div className="relative z-10 space-y-5">
         <div className="space-y-2">
@@ -83,6 +83,8 @@ export function ProjectCard({
             src={imageSrc}
             alt={`${title} preview`}
             fill
+            loading="lazy"
+            quality={75}
             className="object-cover object-top"
             sizes="(min-width: 1024px) 66vw, (min-width: 768px) 50vw, 100vw"
           />

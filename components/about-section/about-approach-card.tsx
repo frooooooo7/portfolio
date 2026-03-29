@@ -18,7 +18,7 @@ export function AboutApproachCard({
 
   return (
     <motion.aside
-      className="relative rounded-3xl border border-primary/35 bg-card/70 p-6 shadow-[0_0_42px_rgba(47,125,230,0.22)] backdrop-blur-sm md:p-8"
+      className="relative rounded-3xl border border-primary/35 bg-card/70 p-6 shadow-[0_0_42px_rgba(47,125,230,0.22)] mobile-no-shadow md:p-8"
       variants={revealUp}
       transition={transition}
     >

@@ -19,7 +19,7 @@ export function ProjectsSection() {
       className="relative isolate overflow-hidden px-6 py-24"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.05 }}
       variants={staggerGroup}
     >
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_14%_20%,rgba(81,164,255,0.2),transparent_44%),radial-gradient(circle_at_86%_76%,rgba(103,232,249,0.16),transparent_46%)]" />

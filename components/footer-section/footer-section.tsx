@@ -18,7 +18,7 @@ export function FooterSection() {
       className="relative isolate overflow-hidden border-t border-primary/25 px-6 py-12"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
       variants={staggerGroup}
     >
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_10%_0%,rgba(81,164,255,0.2),transparent_45%),linear-gradient(180deg,rgba(5,14,30,0.7),rgba(2,9,20,0.95))]" />

@@ -9,7 +9,7 @@ import {
   type Transition,
   type Variants,
 } from "framer-motion";
-import { type MouseEventHandler } from "react";
+import { type MouseEventHandler, useEffect, useState } from "react";
 
 export const FIRST_NAME = "Damian";
 export const LAST_NAME = "Barzyk";
@@ -28,6 +28,14 @@ type HeroContentMotion = {
 export function useHeroContentMotion(
   prefersReducedMotion: boolean,
 ): HeroContentMotion {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.matchMedia("(max-width: 767px)").matches);
+  }, []);
+
+  const disabled = prefersReducedMotion || isMobile;
+
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
 
@@ -72,24 +80,24 @@ export function useHeroContentMotion(
     },
   };
 
-  const contentStyle: MotionStyle | undefined = prefersReducedMotion
+  const contentStyle: MotionStyle | undefined = disabled
     ? undefined
     : { x: contentX, y: contentY };
 
-  const glowStyle: MotionStyle | undefined = prefersReducedMotion
+  const glowStyle: MotionStyle | undefined = disabled
     ? undefined
     : { x: glowX, y: glowY };
 
-  const avatarHover: TargetAndTransition | undefined = prefersReducedMotion
+  const avatarHover: TargetAndTransition | undefined = disabled
     ? undefined
     : { y: -4, scale: 1.02, rotate: 0.8 };
 
-  const avatarTransition: Transition = prefersReducedMotion
+  const avatarTransition: Transition = disabled
     ? { duration: 0 }
     : { duration: 0.35, ease: "easeOut" };
 
   const handleMouseMove: MouseEventHandler<HTMLDivElement> = (event) => {
-    if (prefersReducedMotion) return;
+    if (disabled) return;
 
     const bounds = event.currentTarget.getBoundingClientRect();
     const nx = (event.clientX - bounds.left) / bounds.width;

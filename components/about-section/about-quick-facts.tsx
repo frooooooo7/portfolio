@@ -27,7 +27,7 @@ export function AboutQuickFacts({
       {facts.map((fact) => (
         <motion.article
           key={fact.label}
-          className="rounded-2xl border border-primary/30 bg-card/75 p-4 backdrop-blur-sm"
+          className="rounded-2xl border border-primary/30 bg-card/75 p-4"
           variants={revealUp}
           whileHover={whileHover}
           transition={transition}

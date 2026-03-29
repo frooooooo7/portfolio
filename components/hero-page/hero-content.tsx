@@ -41,13 +41,13 @@ export function HeroContent({
       style={contentStyle}
     >
       <motion.div
-        className="pointer-events-none absolute -z-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(81,164,255,0.28),transparent_64%)] blur-2xl"
+        className="pointer-events-none absolute -z-10 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(81,164,255,0.28),transparent_64%)] blur-2xl mobile-no-blur"
         style={glowStyle}
         aria-hidden="true"
       />
 
       <motion.div
-        className="relative size-32 overflow-hidden rounded-full border border-primary/60 bg-background/50 shadow-[0_0_48px_rgba(47,125,230,0.4)] md:size-40"
+        className="relative size-32 overflow-hidden rounded-full border border-primary/60 bg-background/50 shadow-[0_0_48px_rgba(47,125,230,0.4)] mobile-no-shadow md:size-40"
         variants={revealUp}
         whileHover={avatarHover}
         transition={avatarTransition}
@@ -58,20 +58,20 @@ export function HeroContent({
           fill
           className="object-cover"
           sizes="(min-width: 768px) 10rem, 8rem"
+          quality={75}
         />
       </motion.div>
       <div className="pointer-events-none absolute -top-4 flex size-44 items-center justify-center md:size-52">
         {AVATAR_PARTICLES.map((particle, index) => (
           <span
             key={index}
-            className={`absolute rounded-full bg-primary/70 shadow-[0_0_12px_rgba(81,164,255,0.6)] ${particle.className}`}
+            className={`absolute rounded-full bg-primary/70 shadow-[0_0_12px_rgba(81,164,255,0.6)] mobile-no-shadow mobile-no-animate ${particle.className}`}
             style={{
               animationName: "hero-particle-float",
               animationDuration: particle.duration,
               animationDelay: particle.delay,
               animationTimingFunction: "ease-in-out",
               animationIterationCount: "infinite",
-              willChange: "transform, opacity",
             }}
             aria-hidden="true"
           />

@@ -16,7 +16,7 @@ export function SkillsSection() {
       className="relative isolate overflow-hidden px-6 py-24"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.22 }}
+      viewport={{ once: true, amount: 0.1 }}
       variants={staggerGroup}
     >
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_24%_16%,rgba(81,164,255,0.2),transparent_45%),radial-gradient(circle_at_85%_74%,rgba(103,232,249,0.18),transparent_44%)]" />

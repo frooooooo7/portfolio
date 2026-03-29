@@ -14,7 +14,7 @@ export function ContactInfoPanel({
 }: ContactInfoPanelProps) {
   return (
     <motion.aside
-      className="rounded-3xl border border-primary/35 bg-card/70 p-6 shadow-[0_0_34px_rgba(47,125,230,0.17)] backdrop-blur-sm md:p-7"
+      className="rounded-3xl border border-primary/35 bg-card/70 p-6 shadow-[0_0_34px_rgba(47,125,230,0.17)] mobile-no-shadow md:p-7"
       variants={revealUp}
     >
       <motion.ul className="space-y-3" variants={staggerGroup}>

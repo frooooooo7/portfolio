@@ -18,7 +18,7 @@ export function AboutSection() {
       className="relative isolate overflow-hidden px-6 py-24"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: true, amount: 0.1 }}
       variants={staggerGroup}
     >
       <AboutBackground prefersReducedMotion={prefersReducedMotion} />
