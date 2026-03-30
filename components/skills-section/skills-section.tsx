@@ -27,12 +27,8 @@ export function SkillsSection() {
             Skills
           </p>
           <h2 className="mx-auto max-w-3xl text-4xl font-bold leading-tight md:text-5xl">
-            A technology stack grouped by what actually ships the product.
+            Tech I actually use.
           </h2>
-          <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Frontend, backend, and tools I use daily to build applications from
-            first idea to production.
-          </p>
         </motion.div>
 
         <motion.div
@@ -45,6 +41,7 @@ export function SkillsSection() {
               title={category.title}
               description={category.description}
               accentClass={category.accentClass}
+              icon={category.icon}
               skills={category.skills}
               revealUp={revealUp}
               staggerGroup={staggerGroup}
