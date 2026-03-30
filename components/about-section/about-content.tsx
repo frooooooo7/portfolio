@@ -1,21 +1,16 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
-import { AboutQuickFacts } from "@/components/about-section/about-quick-facts";
+import { AboutBeyondCode } from "@/components/about-section/about-beyond-code";
 import { motion, type Variants } from "framer-motion";
 
-type Fact = {
-  label: string;
-  value: string;
-};
-
 type AboutContentProps = {
-  facts: Fact[];
   revealUp: Variants;
   staggerGroup: Variants;
   prefersReducedMotion: boolean;
 };
 
 export function AboutContent({
-  facts,
   revealUp,
   staggerGroup,
   prefersReducedMotion,
@@ -34,23 +29,21 @@ export function AboutContent({
           className="max-w-2xl text-4xl font-bold leading-tight md:text-5xl"
           variants={revealUp}
         >
-          I turn product ideas into interfaces people remember.
+          I&apos;m a fullstack developer.
         </motion.h2>
         <motion.p
           className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
           variants={revealUp}
         >
-          I am Damian, a front-end developer focused on polished motion, strong
-          performance, and clear UX decisions. I enjoy moving from rough concept
-          to production-ready UI with a system that scales.
+          I work on both the backend and frontend — I care about every layer of
+          the application being well thought out and properly crafted. I like
+          understanding systems as a whole, not just isolated pieces.
         </motion.p>
       </motion.div>
 
-      <AboutQuickFacts
-        facts={facts}
+      <AboutBeyondCode
         revealUp={revealUp}
         staggerGroup={staggerGroup}
-        prefersReducedMotion={prefersReducedMotion}
       />
 
       <motion.div className="flex flex-wrap gap-3 pt-2" variants={revealUp}>
