@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { FeaturedProjectGallery } from "@/components/projects-section/featured-project-gallery";
 import { getProjectCardMotion } from "@/components/projects-section/motion/project-card-motion";
 import { motion, type Variants } from "framer-motion";
 import { ExternalLink } from "lucide-react";
@@ -10,7 +11,8 @@ type ProjectCardProps = {
   description: string;
   tech: string[];
   impact: string;
-  imageSrc: string;
+  imageSrc?: string;
+  galleryImages?: string[];
   liveUrl: string | null;
   githubUrl: string;
   featured?: boolean;
@@ -26,6 +28,7 @@ export function ProjectCard({
   tech,
   impact,
   imageSrc,
+  galleryImages,
   liveUrl,
   githubUrl,
   featured = false,
@@ -34,6 +37,7 @@ export function ProjectCard({
   prefersReducedMotion,
 }: ProjectCardProps) {
   const { whileHover, transition } = getProjectCardMotion(prefersReducedMotion);
+  const hasGallery = (galleryImages?.length ?? 0) > 0;
 
   return (
     <motion.article
@@ -74,21 +78,35 @@ export function ProjectCard({
         <p className="text-sm font-medium text-primary md:text-base">
           {impact}
         </p>
-        <div
-          className={`relative overflow-hidden rounded-2xl border border-primary/35 bg-background/45 ${
-            featured ? "h-72 md:h-80" : "h-52 md:h-60"
-          }`}
-        >
-          <Image
-            src={imageSrc}
-            alt={`${title} preview`}
-            fill
-            loading="lazy"
-            quality={75}
-            className="object-cover object-top"
-            sizes="(min-width: 1024px) 66vw, (min-width: 768px) 50vw, 100vw"
+        {hasGallery && galleryImages ? (
+          <FeaturedProjectGallery
+            title={title}
+            galleryImages={galleryImages}
+            featured={featured}
           />
-        </div>
+        ) : (
+          <div
+            className={`relative overflow-hidden rounded-2xl border border-primary/35 bg-background/45 ${
+              featured ? "h-72 md:h-80" : "h-52 md:h-60"
+            }`}
+          >
+            {imageSrc ? (
+              <Image
+                src={imageSrc}
+                alt={`${title} preview`}
+                fill
+                loading="lazy"
+                quality={75}
+                className="object-contain object-center"
+                sizes="(min-width: 1024px) 66vw, (min-width: 768px) 50vw, 100vw"
+              />
+            ) : (
+              <div className="flex h-full items-center justify-center px-4 text-center text-sm font-medium text-muted-foreground md:text-base">
+                Preview unavailable for this project.
+              </div>
+            )}
+          </div>
+        )}
 
         <div className="flex flex-wrap gap-2 pt-1">
           {liveUrl ? (

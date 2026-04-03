@@ -30,7 +30,7 @@ export function ProjectsSection() {
             Projects
           </p>
           <h2 className="mx-auto max-w-3xl text-4xl font-bold leading-tight md:text-5xl">
-            Five highlighted projects that define my build quality.
+            My 5 highlighted projects.
           </h2>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
             Selected work across product design, engineering, and delivery, with
@@ -48,6 +48,7 @@ export function ProjectsSection() {
               tech={featuredProject.tech}
               impact={featuredProject.impact}
               imageSrc={featuredProject.imageSrc}
+              galleryImages={featuredProject.galleryImages}
               liveUrl={featuredProject.liveUrl}
               githubUrl={featuredProject.githubUrl}
               featured={featuredProject.featured}
@@ -70,6 +71,7 @@ export function ProjectsSection() {
                 tech={project.tech}
                 impact={project.impact}
                 imageSrc={project.imageSrc}
+                galleryImages={project.galleryImages}
                 liveUrl={project.liveUrl}
                 githubUrl={project.githubUrl}
                 revealUp={revealUp}

@@ -56,6 +56,7 @@ export function HeroContent({
           src="/avatar.png"
           alt="Avatar Damian Barzyk"
           fill
+          loading="eager"
           className="object-cover"
           sizes="(min-width: 768px) 10rem, 8rem"
           quality={75}
