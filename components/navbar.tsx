@@ -77,6 +77,14 @@ export function Navbar() {
                 <span className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
+            <a
+              href="/cv.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-md border border-primary/45 px-3 py-1.5 text-sm font-semibold uppercase tracking-[0.12em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
+              Check my CV
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -108,6 +116,15 @@ export function Navbar() {
                   {item.name}
                 </a>
               ))}
+              <a
+                href="/cv.pdf"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="mt-1 inline-flex w-fit rounded-md border border-primary/45 px-3 py-1.5 text-sm font-semibold uppercase tracking-[0.12em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+              >
+                CV
+              </a>
             </div>
           </motion.div>
         )}
