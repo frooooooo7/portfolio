@@ -1,12 +1,8 @@
+import { SOCIAL_LINKS } from "@/components/hero-page/social-links-data";
+
 export type FooterNavItem = {
   label: string;
   href: string;
-};
-
-export type FooterSocialItem = {
-  label: string;
-  href: string;
-  iconSrc: string;
 };
 
 export const footerNavItems: FooterNavItem[] = [
@@ -17,20 +13,5 @@ export const footerNavItems: FooterNavItem[] = [
   { label: "Contact", href: "#contact" },
 ];
 
-export const footerSocialItems: FooterSocialItem[] = [
-  {
-    label: "GitHub",
-    href: "https://github.com",
-    iconSrc: "/github-142-svgrepo-com.svg",
-  },
-  {
-    label: "Discord",
-    href: "https://discord.com/users/fro7777",
-    iconSrc: "/discord-svgrepo-com.svg",
-  },
-  {
-    label: "Website",
-    href: "#home",
-    iconSrc: "/globe.svg",
-  },
-];
+// Reuse SOCIAL_LINKS from hero section
+export const footerSocialItems = SOCIAL_LINKS;

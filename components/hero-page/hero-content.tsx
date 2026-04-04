@@ -53,11 +53,11 @@ export function HeroContent({
         transition={avatarTransition}
       >
         <Image
-          src="/avatar.png"
+          src="/avatar.jpg"
           alt="Avatar Damian Barzyk"
           fill
           loading="eager"
-          className="object-cover"
+          className="object-cover object-[center_25%]"
           sizes="(min-width: 768px) 10rem, 8rem"
           quality={75}
         />
@@ -140,9 +140,8 @@ export function HeroContent({
         className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-xl"
         variants={revealUp}
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. In explicabo
-        debitis corrupti ipsam sit? Architecto voluptate labore suscipit ullam
-        cumque.
+        I write code for the web. Good code. The kind you don't have to fix
+        later.
       </motion.p>
 
       <HeroSocialLinks

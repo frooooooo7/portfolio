@@ -13,7 +13,14 @@ export const educationItems: EducationItem[] = [
     institution: "Politechnika Rzeszowska",
     description:
       "Specialisation in software engineering with focus on web systems and distributed architectures.",
-    tags: ["Algorithms", "Data Structures", "OOP", "Web Systems", "Databases", "Math"],
+    tags: [
+      "Algorithms",
+      "Data Structures",
+      "OOP",
+      "Web Systems",
+      "Databases",
+      "Math",
+    ],
   },
   {
     period: "2019 – 2024",
@@ -21,7 +28,16 @@ export const educationItems: EducationItem[] = [
     institution: "ZST im. Bohaterów Września, Jasło",
     description:
       "Qualifications: INF.02 (administration & operation of computer systems, peripherals and local networks) · INF.03 (creating & administering websites, web apps and databases). Covered hardware assembly, OS administration, LAN design, web dev and database management.",
-    tags: ["HTML/CSS", "JavaScript", "PHP", "MySQL", "Linux", "Networking", "Hardware", "Software"],
+    tags: [
+      "HTML/CSS",
+      "JavaScript",
+      "PHP",
+      "MySQL",
+      "Linux",
+      "Networking",
+      "Hardware",
+      "Software",
+    ],
   },
 ];
 
@@ -41,8 +57,7 @@ export const beyondCodeItems: BeyondCodeItem[] = [
   {
     icon: "dumbbell",
     title: "Gym",
-    description:
-      "Strength training as a reset. I like progress you can measure in kilograms.",
+    description: "Strength training, calisthenics. This is what i love.",
   },
   {
     icon: "network",

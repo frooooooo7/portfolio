@@ -14,8 +14,8 @@ export function ContactHeader({ revealUp }: ContactHeaderProps) {
         Let&apos;s build something together.
       </h2>
       <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-        Have an idea, need a front-end partner, or want to discuss a project?
-        Reach out and I will get back to you soon.
+        Have an idea, need a fullstack partner, or want to make a project? Reach
+        out and I will get back to you soon.
       </p>
     </motion.div>
   );

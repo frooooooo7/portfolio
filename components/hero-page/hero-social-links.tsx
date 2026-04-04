@@ -1,28 +1,6 @@
 import { getHeroSocialLinkMotion } from "@/components/hero-page/motion/hero-social-links-motion";
-import { FileText, Mail, type LucideIcon } from "lucide-react";
+import { SOCIAL_LINKS } from "./social-links-data";
 import { motion, type Variants } from "framer-motion";
-
-type SocialLink = {
-  href: string;
-  label: string;
-  icon?: LucideIcon;
-  iconSrc?: string;
-};
-
-const SOCIAL_LINKS: SocialLink[] = [
-  {
-    href: "https://github.com",
-    label: "GitHub",
-    iconSrc: "/github-142-svgrepo-com.svg",
-  },
-  {
-    href: "https://discord.com/users/fro7777",
-    label: "Discord (fro7777)",
-    iconSrc: "/discord-svgrepo-com.svg",
-  },
-  { href: "mailto:kontakt@example.com", label: "Email", icon: Mail },
-  { href: "/cv.pdf", label: "CV", icon: FileText },
-];
 
 type HeroSocialLinksProps = {
   revealUp: Variants;

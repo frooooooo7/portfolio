@@ -74,10 +74,6 @@ export function ProjectCard({
             </motion.li>
           ))}
         </motion.ul>
-
-        <p className="text-sm font-medium text-primary md:text-base">
-          {impact}
-        </p>
         {hasGallery && galleryImages ? (
           <FeaturedProjectGallery
             title={title}

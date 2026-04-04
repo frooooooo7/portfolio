@@ -18,7 +18,7 @@ export const projects: ProjectItem[] = [
     title: "Estillo Frontend",
     category: "Website / Booking UI",
     description:
-      "Commissioned client website for a beauty salon, featuring a fully custom booking system with a complete admin panel for managing appointments, availability, and services. Built as a modern, responsive Next.js app with a component-driven UI, robust form handling and validation, and client-side data fetching/caching for a smooth user experience.",
+      "I delivered a website for a beauty salon that combines an informational site for clients with a fully custom booking system. Clients can easily browse the offer, find contact details, and book an appointment in a convenient way for a selected time slot.\n\nThe project also includes a complete admin panel, allowing the salon staff to manage bookings, availability, and services on an ongoing basis. Everything was built to simplify the salon's day-to-day work and reduce the need to arrange appointments manually by phone or messages.",
     tech: [
       "Next.js 15",
       "React 19",
@@ -47,7 +47,7 @@ export const projects: ProjectItem[] = [
     title: "MindArena",
     category: "Monorepo / Full-stack Project",
     description:
-      "MindArena is a full-stack competitive platform for real-time memory and logic games. It is built to let players quickly enter online arenas, get matched with opponents through matchmaking, and compete in both public and private duels. The platform includes game history tracking, ranking/progression visibility, and social gameplay features such as challenging friends to direct 1v1 matches. It is designed as a scalable TypeScript monorepo with shared packages and clear app boundaries, making it easier to ship new gameplay features, keep quality high through repeatable QA workflows, and maintain consistent technical documentation.",
+      "MindArena is a full-stack competitive platform for real-time memory and logic games. It is built to let players quickly enter online arenas, get matched with opponents through matchmaking, and compete in both public and private duels. The platform includes game history tracking, ranking/progression visibility, and social gameplay features such as challenging friends to direct 1v1 matches. ",
     tech: [
       "TypeScript",
       "Next.js",

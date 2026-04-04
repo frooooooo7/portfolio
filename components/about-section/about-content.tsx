@@ -35,16 +35,13 @@ export function AboutContent({
           className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
           variants={revealUp}
         >
-          I work on both the backend and frontend — I care about every layer of
-          the application being well thought out and properly crafted. I like
-          understanding systems as a whole, not just isolated pieces.
+          I am a computer science student at Rzeszów University of Technology
+          with a passion for creating websites and working in the IT. I work
+          across the entire stack — from database queries to UI interactions.
         </motion.p>
       </motion.div>
 
-      <AboutBeyondCode
-        revealUp={revealUp}
-        staggerGroup={staggerGroup}
-      />
+      <AboutBeyondCode revealUp={revealUp} staggerGroup={staggerGroup} />
 
       <motion.div className="flex flex-wrap gap-3 pt-2" variants={revealUp}>
         <Button

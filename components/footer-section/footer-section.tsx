@@ -35,7 +35,8 @@ export function FooterSection() {
               <span className="text-primary">/&gt;</span>
             </p>
             <p className="mt-2 text-sm text-muted-foreground">
-              Front-end craft focused on speed, clarity, and interaction quality.
+              Fullstack craft focused on speed, clarity, and interaction
+              quality.
             </p>
           </div>
 
@@ -65,32 +66,39 @@ export function FooterSection() {
             {currentYear} Damian Barzyk. All rights reserved.
           </p>
 
-          <motion.div className="flex items-center gap-2" variants={staggerGroup}>
-            {footerSocialItems.map((item) => (
+          <motion.div
+            className="flex items-center gap-2"
+            variants={staggerGroup}
+          >
+            {footerSocialItems.map(({ href, label, icon: Icon, iconSrc }) => (
               <motion.a
-                key={item.label}
-                href={item.href}
-                target={item.href.startsWith("http") ? "_blank" : undefined}
-                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                title={item.label}
-                aria-label={item.label}
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noreferrer" : undefined}
+                title={label}
+                aria-label={label}
                 className="flex size-10 items-center justify-center rounded-full border border-primary/30 bg-background/50 text-primary transition-colors hover:border-primary/50 hover:bg-primary hover:text-primary-foreground"
                 variants={revealUp}
               >
-                <span
-                  className="size-4 bg-current"
-                  style={{
-                    WebkitMaskImage: `url(${item.iconSrc})`,
-                    maskImage: `url(${item.iconSrc})`,
-                    WebkitMaskSize: "contain",
-                    maskSize: "contain",
-                    WebkitMaskPosition: "center",
-                    maskPosition: "center",
-                    WebkitMaskRepeat: "no-repeat",
-                    maskRepeat: "no-repeat",
-                  }}
-                  aria-hidden="true"
-                />
+                {iconSrc ? (
+                  <span
+                    className="size-4 bg-current"
+                    style={{
+                      WebkitMaskImage: `url(${iconSrc})`,
+                      maskImage: `url(${iconSrc})`,
+                      WebkitMaskSize: "contain",
+                      maskSize: "contain",
+                      WebkitMaskPosition: "center",
+                      maskPosition: "center",
+                      WebkitMaskRepeat: "no-repeat",
+                      maskRepeat: "no-repeat",
+                    }}
+                    aria-hidden="true"
+                  />
+                ) : Icon ? (
+                  <Icon className="size-4" />
+                ) : null}
               </motion.a>
             ))}
           </motion.div>
